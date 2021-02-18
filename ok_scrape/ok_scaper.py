@@ -75,8 +75,8 @@ while True:
     else:
         next_page_button.click()
     time.sleep(5)
+    with open('ok_data.picke', 'ab') as file:
+        pickle.dump(whole_data, file)
 
 driver.close()
 
-with open('ok_data.picke', 'wb') as file:
-    pickle.dump(whole_data, file)
