@@ -8,7 +8,10 @@ from config import *
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
-driver = webdriver.Chrome('../chromedriver.exe', options=options)
+try:
+    driver = webdriver.Chrome('../chromedriver.exe', options=options)
+except:
+    driver = webdriver.Chrome('chromedriver', options=options)
 
 driver.get(ok_login_url)
 driver.find_element_by_id(ok_id_input).send_keys(ok_id)
@@ -51,10 +54,7 @@ def extract_data(table):
                       'chub': chub
                       }
                  }
-            # print(formula)
-            # data.append([formula_type, formula_reference, formula_name, formula_recipe, herbs_count, chub])
             data.append(formula)
-            # print(len(data))
         except:
             print(tr.text)
 
@@ -68,15 +68,15 @@ while True:
     data = extract_data(table)
     whole_data += data
     next_page_button = driver.find_element_by_css_selector(
-        'a[title="Go to the next page"]'
+        'a[title="Go to the next page"] > span'
     )
-    if 'disabled' in next_page_button.get_attribute('class'):
-        break
-    else:
+    try:
         next_page_button.click()
-    time.sleep(5)
-    with open('ok_data.pickle', 'ab') as file:
-        pickle.dump(whole_data, file)
+    except:
+        break
+    time.sleep(3)
 
 driver.close()
 
+with open('ok_data.pickle', 'Wb') as file:
+    pickle.dump(whole_data, file)
