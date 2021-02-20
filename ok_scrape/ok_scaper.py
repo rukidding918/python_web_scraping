@@ -78,5 +78,5 @@ while True:
 
 driver.close()
 
-with open('ok_data.pickle', 'Wb') as file:
+with open('ok_data.pickle', 'wb') as file:
     pickle.dump(whole_data, file)
