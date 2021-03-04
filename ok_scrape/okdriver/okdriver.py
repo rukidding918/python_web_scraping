@@ -1,9 +1,9 @@
 
 from selenium import webdriver
 
-class OkDriver(webdriver.Chrome):
-    def __init__(self):
-
+class Scraper(webdriver.Chrome):
+    # def __init__(self):
+    #     pass
 
     def login(self, config):
         self.get(config.get('urls', 'url_login'))
