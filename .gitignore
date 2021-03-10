@@ -1,6 +1,9 @@
 .idea
 ok_scrape/config.py
 *.ini
+*.df
+*.pickle
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
