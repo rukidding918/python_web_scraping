@@ -79,7 +79,7 @@ class FormulaDictionary:
 
 
 if __name__ == "__main__":
-    formulas = FormulaDictionary("../chromedriver.exe", "okchundang.ini")
+    formulas = FormulaDictionary("chromedriver.exe", "okchundang.ini")
     formulas.proc()
     with open("ok_formulas.pickle", "wb") as file:
         pickle.dump(formulas.dic_list, file)

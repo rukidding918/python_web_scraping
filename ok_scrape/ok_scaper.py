@@ -9,7 +9,7 @@ from config import *
 options = webdriver.ChromeOptions()
 options.add_experimental_option("excludeSwitches", ["enable-logging"])
 try:
-    driver = webdriver.Chrome('../chromedriver.exe', options=options)
+    driver = webdriver.Chrome('chromedriver.exe', options=options)
 except:
     driver = webdriver.Chrome('chromedriver', options=options)
 
